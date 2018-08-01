@@ -1,0 +1,53 @@
+	<ion-view view-title=" Arquitetos e Designers" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"   id="page-arquitetos" class=" page-arquitetos">
+		
+			<!-- code refresh -->
+			<ion-refresher pulling-text="{{ 'Atualizar...' | translate }}"  on-refresh="doRefresh()"></ion-refresher>
+			<!-- ./code refresh -->
+			
+
+			<!-- code search -->
+			<ion-list class="card list" >
+				<div class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="search" ng-model="filter_arquitetos" placeholder="{{ 'Busca' | translate }}" aria-label="filter arquitetos" />
+				</div>
+			</ion-list>
+			<!-- ./code search -->
+
+			<!-- code listing -->
+			<div class="list animate-none">
+				<div class="" ng-repeat="item in arquitetos | filter:filter_arquitetos as results" ng-init="$last ? fireEvent() : null" >
+					<div class="card light-bg  ink ink-dark">
+						<a class="item item-avatar item-text-wrap" ng-href="#/contemporanea/arquiteto_singles/{{item.id}}" >
+							<img alt="" class="avatar" ng-src="{{item.foto}}" />
+							<h2  ng-bind-html="item.nome | to_trusted"></h2>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- ./code listing -->
+
+
+			<!-- code infinite scroll -->
+			<ion-list class="list">
+				<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="onInfinite()" distance="5px" ng-if="hasMoreData"></ion-infinite-scroll>
+			</ion-list>
+			<!-- ./code infinite scroll -->
+
+
+			<!-- code search result not found -->
+			<ion-list class="list">
+				<div class="item" ng-if="results.length == 0" >
+					<p>{{ 'Nenhum resultado encontrado!' | translate }}</p>
+				</div>
+			</ion-list>
+			<!-- code search result not found -->
+
+
+
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

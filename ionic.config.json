@@ -1,0 +1,14 @@
+{
+  "name": "contemporanea",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "pro_id": "com.imabuilder.digitaldesigners.contemporanea",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}

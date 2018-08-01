@@ -1,0 +1,24 @@
+	<ion-view view-title=" {{ arquiteto.nome }}" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"  scroll="true"   id="page-arquiteto_singles" class="page-arquiteto_singles">
+		
+			<ion-refresher pulling-text="Atualizar..."  on-refresh="doRefresh()"></ion-refresher>
+			<div class="list ">
+
+					<!-- heading-1 -->
+					<div class="item item-divider"  ng-bind-html="arquiteto.nome | to_trusted">{{arquiteto.nome}}</div>
+					<!-- ./heading-1 -->
+
+					<!-- images -->
+					<div class="item noborder"><img class="full-image" ng-src="{{arquiteto.foto}}"  zoom-view="true" zoom-src="{{arquiteto.foto}}"/></div>
+					<!-- ./images -->
+
+					<!-- to_trusted -->
+					<div class="item item-text-wrap noborder to_trusted {{ fontsize }}" ng-bind-html="arquiteto.conteudo | strHTML"></div>
+					<!-- ./to_trusted -->
+			</div>
+			<br/><br/><br/>
+
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>

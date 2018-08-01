@@ -1,0 +1,80 @@
+	<ion-view view-title=" Projeto Contempor&acirc;nea" hide-nav-bar="false" >
+		<!-- content -->
+		<ion-content delegate-handle="top"   id="page-dashboard" class=" page-dashboard">
+		<!-- code slide hero -->
+<div class="balanced-900-bg slide-box-hero" ng-controller="postsCtrl">
+	<ion-slides class="slide-box-hero-content" options="{slidesPerView:1,autoplay:10000,loop:1}" slider="data.slider">
+		<ion-slide-page class="slide-box-hero-item" ng-repeat="item in data_posts | limitTo : 10:0" ng-if="item.x_featured_media_large!=null" >
+    		<div class="slide-box-hero-container" style="background: url('{{item.x_featured_media_large}}') no-repeat center center;">
+    			<div class="padding caption">
+    				<h2 ng-bind-html="item.title.rendered | strHTML"></h2>
+    				<a ng-href="#/contemporanea/post_singles/{{item.id}}"> &gt; Saiba Mais</a>
+    			</div>
+    		</div>
+		</ion-slide-page>
+	</ion-slides>
+</div>
+<!-- ./code slide hero -->
+
+
+    
+<!-- categorias -->
+<a ng-href="#/contemporanea/categories" class="tags-heroes-title light-bg dark" style="padding:15px; text-align:center">Categorias <i class="pull-right icon ion-chevron-right"></i></a>
+<div class="light-bg" ng-controller="categoriesCtrl">
+	<div class="tags-heroes-content list">
+		
+        <div class="row">
+			<div ng-repeat="item in data_categories | limitTo:2:0" class="col" ng-class="$index ? 'col-33':'col-67'" >
+                <a href="#/contemporanea/posts/{{item.id}}" class="button button-small button-full ink" ng-class="$index ? 'button-balanced-900' : 'button-balanced-900'"><span ng-bind-html="item.name | strHTML"></span></a>
+            </div>
+		</div>
+        
+		<div class="row">
+			<div ng-repeat="item in data_categories | limitTo:2:2" class="col" ng-class="$index ? 'col-66':'col-33'" >
+                <a href="#/contemporanea/posts/{{item.id}}" class="button button-small button-full ink" ng-class="$index ? 'button-balanced-900' : 'button-balanced-900'" ><span ng-bind-html="item.name | strHTML"></span></a>
+            </div>
+		</div>
+        
+         
+		<div class="row">
+			<div ng-repeat="item in data_categories | limitTo:2:4" class="col" ng-class="$index ? 'col-33':'col-67'" >
+                <a href="#/contemporanea/posts/{{item.id}}" class="button button-small button-full ink" ng-class="$index ? 'button-balanced-900' : 'button-balanced-900'"><span ng-bind-html="item.name | strHTML"></span></a>
+            </div>
+		</div>
+      
+        
+	</div>
+</div>
+<!-- ./categorias -->
+
+<!-- code feature posts -->
+<a ng-href="#/contemporanea/posts/-1" class="slide-box-title light-bg dark" style="padding:15px; text-align:center">Projetos Recentes<i class="pull-right icon ion-chevron-right"></i></a>
+<div class="light-bg dark slide-box-thumbnail" style="padding:5px" ng-controller="postsCtrl" >
+	<ion-slides class="slide-box-thumbnail-content" ng-if="data_posts" options="{slidesPerView:grid80,autoplay:10000,loop:1}" slider="data.slider" show-pager="false">
+		<ion-slide-page class="slide-box-thumbnail-item" ng-repeat="item in data_posts | limitTo : 16:0" ng-if="item.x_featured_media_large!=null">
+			<a ng-href="#/contemporanea/post_singles/{{item.id}}"><img class="thumbnail" ng-src="{{item.x_featured_media}}" alt="" /></a>
+			<p class="caption"><a ng-href="#/contemporanea/post_singles/{{item.id}}" ng-bind-html="item.title.rendered | strHTML" ></a></p>
+		</ion-slide-page>
+	</ion-slides>
+</div>
+<!-- ./code feature posts -->
+        
+<br/>
+        
+<!-- code user -->
+<a ng-href="#/contemporanea/arquitetos" class="slide-box-title light-bg dark" style="padding:15px; text-align:center">Arquitetos e Designers<i class="pull-right icon ion-chevron-right"></i></a>
+<!-- ./code user  -->
+
+<br/>
+
+<div class="balanced-900-bg light">
+       <div class="padding text-center">&copy Projeto Contemporânea 2018</div> 
+</div>
+
+<br/>
+<br/>
+
+    
+		</ion-content>
+		<!-- ./content -->
+	</ion-view>
